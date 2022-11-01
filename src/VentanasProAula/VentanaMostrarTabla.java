@@ -67,6 +67,23 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
         }   
     }
 
+   
+   void eliminar(){
+       int fila = tblTabla.getSelectedRow();
+       
+       codigo = Integer.parseInt(tblTabla.getValueAt(fila,0).toString());
+       
+       String sql = "DELETE FROM proyectos WHERE codigo="+codigo;
+       conne = con.Conexion();
+       try {
+          st = conne.createStatement();
+                st.executeUpdate(sql);
+                JOptionPane.showMessageDialog(null, "Proyecto Eliminado");
+                limpiarTabla();
+       } catch (Exception e) {
+           System.out.println("Error eliminar: " + e);
+       }
+   }
     public void limpiarTabla() {
         for (int i = 0; i < Table.getRowCount(); i++) {
             Table.removeRow(i);
@@ -208,12 +225,9 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
-        
         v.setLocationRelativeTo(null);
         v.setVisible(true);
-
-    
-      
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFilaActionPerformed
@@ -222,10 +236,9 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "Seleciona una fila para borrar ");
         } else {
-            listaProyecto.remove(fila);
+           eliminar();
         }
-
-        limpiarTabla();
+        Listar();
      
     }//GEN-LAST:event_btnEliminarFilaActionPerformed
 
@@ -274,11 +287,9 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "Seleciona una fila para modificar ");
         } else {
-
             VentanaProyectoDeInvestigacion v = new VentanaProyectoDeInvestigacion(this, true);
             v.setLocationRelativeTo(null);
             v.setVisible(true);
-
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

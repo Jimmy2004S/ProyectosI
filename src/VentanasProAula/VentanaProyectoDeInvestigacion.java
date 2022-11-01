@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 
 public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
     
+
     Conexion con = new Conexion();
     Connection conne = con.Conexion();   
     Statement st;
@@ -54,6 +55,10 @@ public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
          } catch (Exception e) {
              System.out.println(e);
          }
+    }
+    
+    void modificar(){
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -216,7 +221,8 @@ public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Los campos estan vacios");
         } else {
             Agregar();
-            dispose();
+            this.dispose();
+          
         }
 
     }//GEN-LAST:event_btnAgregarProyectoActionPerformed

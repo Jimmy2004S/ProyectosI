@@ -1,0 +1,26 @@
+POR ARREGLAR.
+
++ VENTANA INICIO:
+ Volver a poner el campo de contraseña
+con un coso para contraseñas, toca saber como sacar al String de eso y solo configurar la linea
+19/metodo validar/contraseña.
+Login
+(usuario: ji , contraseña: 123)
+
+
++VENTANA MOSTRAR TABLAS: 
+Cambiar la foto y ponerla por algo referente a UNICOLOMBO.
+Tunear los botones y/o mejorar la interfaz completa.
+
+
++Poner textos predeterminados en los textos
+
+
+
+Nota: El codigo de lookandfeel esta en el main/linea 24 solo pongan el look que les gusta
+y ya.
+
+
+
+
+
