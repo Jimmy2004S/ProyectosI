@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2022 a las 05:57:02
+-- Tiempo de generación: 01-11-2022 a las 22:00:54
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyectosi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `profesores`
+--
+
+CREATE TABLE `profesores` (
+  `codigo` int(11) NOT NULL,
+  `Nombre` varchar(20) NOT NULL,
+  `identificacion` varchar(20) NOT NULL,
+  `cargo` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `profesores`
+--
+
+INSERT INTO `profesores` (`codigo`, `Nombre`, `identificacion`, `cargo`) VALUES
+(1, 'Carlos Alvarez', '104312945', 'Investigador principal'),
+(2, 'Pedro Rosales', '12343343', 'Investigador principal'),
+(3, 'Marco Silva', '312031122', 'Autor'),
+(4, 'Francisco Luna', '213442323', 'Autor'),
+(5, 'ji', '123', 'Investigador principal'),
+(6, 'pro', '123', 'Autor');
 
 -- --------------------------------------------------------
 
@@ -50,6 +75,12 @@ INSERT INTO `proyectos` (`Codigo`, `Acronimo`, `LiderProyecto`, `Objetivo`, `Fec
 --
 
 --
+-- Indices de la tabla `profesores`
+--
+ALTER TABLE `profesores`
+  ADD PRIMARY KEY (`codigo`);
+
+--
 -- Indices de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
@@ -58,6 +89,12 @@ ALTER TABLE `proyectos`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `profesores`
+--
+ALTER TABLE `profesores`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
