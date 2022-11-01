@@ -73,17 +73,7 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
             i = i - 1;
         }
     }
-
-    String NombreP[] = new String[5];
-
-    public void NombreProf(String nombre) {
-        for (int i = 0; i < 1; i++) {
-            NombreP[i] += nombre;
-            System.out.println(NombreP[i]);
-            break;
-        }
-    }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -289,61 +279,30 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
             v.setLocationRelativeTo(null);
             v.setVisible(true);
 
-            Integer aleatorio = (int) ((Math.random() * 1000) + 2000);
-            ProyectoInvestigacion PI = new ProyectoInvestigacion();
-
-            String cad1 = v.ObtenerTxtNombre();
-            String cad2 = v.ObtenertxtLider();
-            String cad3 = v.ObtenertxtObjetivo();
-            Integer Ref = aleatorio;
-            Date FechaI = new Date();
-
-            PI.setCodigoRef(Ref);
-            PI.setAcronimo(cad1);
-            PI.setPrincipal(cad2);
-            PI.setObjetivo(cad3);
-            PI.setFecI(FechaI);
-            listaProyecto.add(fila, PI);
-            listaProyecto.remove(fila + 1);
-            limpiarTabla();
-         
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaMostrarTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaMostrarTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaMostrarTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaMostrarTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-
-                new VentanaMostrarTabla().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        try {for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break; }}
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(VentanaMostrarTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(VentanaMostrarTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(VentanaMostrarTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(VentanaMostrarTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold> //</editor-fold> /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new VentanaMostrarTabla().setVisible(true);
+//            } });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;

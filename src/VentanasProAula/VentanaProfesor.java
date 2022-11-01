@@ -1,8 +1,7 @@
 package VentanasProAula;
 
 import co.edu.unicolombo.ingsistemas.pb.ejercicio1.proyectodeinvestigacion.modelo.Profesor;
-import com.jtattoo.plaf.*;
-import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
+import co.edu.unicolombo.ingsistemas.pb.ejercicio1.proyectodeinvestigacion.modelo.ProfesorDAO;
 import config.Conexion;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
@@ -12,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -19,6 +20,8 @@ import javax.swing.table.TableRowSorter;
 
 public class VentanaProfesor extends javax.swing.JDialog {
 
+    Profesor pr = new Profesor();
+    ProfesorDAO profe = new ProfesorDAO();
     Conexion con = new Conexion();
     Connection connet = con.Conexion();
     Statement st;
@@ -285,34 +288,24 @@ public class VentanaProfesor extends javax.swing.JDialog {
 
 
      void Agregar(){
-         String identi = txtId.getText();
-         String nom = txtNomProf.getText();
-         String cs = null;
-         if (btnAutor.isSelected()) {
+           String cs = null;
+                 if (btnAutor.isSelected()) {
              cs = "Autor";
          } else if (btnInvestigadorP.isSelected()) {
              cs = "Investigador principal";
          }
-
-         try {
-                 String sql = "insert into profesores(Nombre,identificacion,Cargo) values "
-                         + "('" + nom + "','" + identi + "','" + cs + "')";
-                 connet = con.Conexion();
-                 st = connet.createStatement();
-                 st.executeUpdate(sql);
-                 JOptionPane.showMessageDialog(null,"Profesor Agregado");
-                 limpiarTabla();
-             
-         } catch (Exception e) {
-             System.out.println(e);
-         }
+                pr.setNombres(txtNomProf.getText());
+                pr.setIdentificacion(txtId.getText());
+                pr.setCargo(cs);
+                profe.RegistrarCliente(pr);
+                JOptionPane.showMessageDialog(null, "Registrado ");
+                limpiarTabla();
     }
      
      
      void modificar() {
         int fila = tblTabla2.getSelectedRow();
         id = Integer.parseInt(tblTabla2.getValueAt(fila, 0).toString());
-            JOptionPane.showMessageDialog(null, "Seleciona una fila para modificar ");
             String identi = txtId.getText();
             String nom = txtNomProf.getText();
             String cs = null;
@@ -335,13 +328,30 @@ public class VentanaProfesor extends javax.swing.JDialog {
         }  
      }
     
+     
+     void eliminar () throws SQLException{
+         int fila = tblTabla2.getSelectedRow();
+          id = Integer.parseInt(tblTabla2.getValueAt(fila, 0).toString());
+         
+         String sql = "DELETE FROM profesores WHERE codigo="+id;
+          connet = con.Conexion();
+          try {
+             st = connet.createStatement();
+                st.executeUpdate(sql);
+                JOptionPane.showMessageDialog(null, "Profesor Eliminado");
+                limpiarTabla();
+         } catch (Exception e) {
+              System.out.println("Eliminar: " +e);
+         }
+                
+     }
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
             if ((btnAutor.isSelected()
                     || btnInvestigadorP.isSelected())
                     && !txtNomProf.getText().equals("")
                     && !txtId.getText().equals("")) {
-                Agregar();
+              Agregar();
             }else{
                 JOptionPane.showMessageDialog(null, "Complete todos los campos");
             }
@@ -381,7 +391,11 @@ public class VentanaProfesor extends javax.swing.JDialog {
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "Seleciona una fila para borrar ");
         } else {
-            listaProfesor.remove(fila);
+            try {
+                eliminar();
+            } catch (SQLException ex) {
+                Logger.getLogger(VentanaProfesor.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         limpiarTabla();
         Listar();
@@ -428,7 +442,7 @@ public class VentanaProfesor extends javax.swing.JDialog {
         int fila = tblTabla2.getSelectedRow();
          
         String cad1 = (String) tblTabla2.getValueAt(fila,1).toString();
-        String identi = (String) tblTabla2.getValueAt(fila,1).toString();
+        String identi = (String) tblTabla2.getValueAt(fila,2).toString();
         
         txtNomProf.setText("");
         txtNomProf.setForeground(Color.black);
@@ -438,22 +452,18 @@ public class VentanaProfesor extends javax.swing.JDialog {
         txtId.setText(identi);
     }//GEN-LAST:event_tblTabla2MouseClicked
 
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaProfesor dialog = new VentanaProfesor(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-
-                dialog.setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                VentanaProfesor dialog = new VentanaProfesor(new javax.swing.JFrame(), true);
+//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+//                    @Override
+//                    public void windowClosing(java.awt.event.WindowEvent e) {
+//                        System.exit(0);
+//                    }});
+//dialog.setVisible(true);
+//            }});
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup GrupoCargoProfesor;
