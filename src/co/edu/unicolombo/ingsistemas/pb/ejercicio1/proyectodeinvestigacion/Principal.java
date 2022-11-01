@@ -19,7 +19,10 @@ public class Principal {
         VentanaInicio b ;
         b = new VentanaInicio();
         b.setLocationRelativeTo(null);
-    
+       System.out.println("");
+       System.out.println("");
+       System.out.println("");
+       System.out.println("");
           try {
                 UIManager.setLookAndFeel( new AcrylLookAndFeel());
                 } catch (UnsupportedLookAndFeelException ex) {
