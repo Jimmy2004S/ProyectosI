@@ -2,8 +2,13 @@
 package VentanasProAula;
 
 import co.edu.unicolombo.ingsistemas.pb.ejercicio1.proyectodeinvestigacion.modelo.ProyectoInvestigacion;
+import config.Conexion;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -13,14 +18,20 @@ import javax.swing.table.TableRowSorter;
 
 public class VentanaMostrarTabla extends javax.swing.JFrame {
 
+    VentanaProyectoDeInvestigacion v = new VentanaProyectoDeInvestigacion(this, true);
     private ArrayList<ProyectoInvestigacion> listaProyecto;
     DefaultTableModel Table = new DefaultTableModel();
-
+    Conexion con = new Conexion();
+    Connection conne = con.Conexion();
+    Statement st;
+    ResultSet rs;
+    int codigo; 
+   
     public VentanaMostrarTabla() {
         initComponents();
         setSize(1100, 680);
         listaProyecto = new ArrayList<>();
-
+        Listar();
         String[] titulo = new String[]{"CODIGO", "NOMBRE DEL PROYECTO",
             "INVESTIGADOR PRINCIPAL", "OBJETIVO", "FECHA"};
         Table.setColumnIdentifiers(titulo);
@@ -28,17 +39,32 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
 
     }
 
-    public void listar() {
-        Object[] ob = new Object[10];
-        for (int i = 0; i < listaProyecto.size(); i++) {
-            ob[0] = listaProyecto.get(i).getCodigoRef();
-            ob[1] = listaProyecto.get(i).getAcronimo();
-            ob[2] = listaProyecto.get(i).getPrincipal();
-            ob[3] = listaProyecto.get(i).getObjetivo();
-            ob[4] = listaProyecto.get(i).getFecha();
-            Table.addRow(ob);
-        }
-        tblTabla.setModel(Table);
+   public void Listar() {
+      Table = new DefaultTableModel();
+      Table.addColumn("Codigo");
+      Table.addColumn("Acronimo");
+      Table.addColumn("Lider del Proyecto");
+      Table.addColumn("Objetivo");
+      Table.addColumn("Fecha");
+      tblTabla.setModel(Table);
+      
+         String sql = "select * from proyectos";
+        try {
+            st = conne.createStatement();
+            rs = st.executeQuery(sql);
+            Object [] proyectos =  new Object [5];
+            while(rs.next()){
+                proyectos [0] = rs.getInt(1);
+                proyectos [1] = rs.getString(2);
+                proyectos [2] = rs.getString(3);
+                proyectos [3] = rs.getString(4);
+                proyectos [4] = rs.getTimestamp(5);
+                Table.addRow(proyectos);
+            }
+            tblTabla.setModel(Table);
+        } catch (SQLException e) {
+            System.out.println("consultar: " + e);
+        }   
     }
 
     public void limpiarTabla() {
@@ -192,29 +218,12 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
-        VentanaProyectoDeInvestigacion v = new VentanaProyectoDeInvestigacion(this, true);
+        
         v.setLocationRelativeTo(null);
         v.setVisible(true);
 
-        Integer aleatorio = (int) ((Math.random() * 1000) + 2000);
-
-        ProyectoInvestigacion PI = new ProyectoInvestigacion();
-        String cad1 = v.ObtenerTxtNombre();
-        String cad2 = v.ObtenertxtLider();
-        String cad3 = v.ObtenertxtObjetivo();
-        Integer Ref = aleatorio;
-        Date FechaI = new Date();
-
-        PI.setCodigoRef(Ref);
-        PI.setAcronimo(cad1);
-        PI.setPrincipal(cad2);
-        PI.setObjetivo(cad3);
-        PI.setFecI(FechaI);
-        listaProyecto.add(PI);
-
-        limpiarTabla();
-        listar();
-
+    
+      
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFilaActionPerformed
@@ -227,9 +236,7 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
         }
 
         limpiarTabla();
-        listar();
-
-
+     
     }//GEN-LAST:event_btnEliminarFilaActionPerformed
 
 
@@ -299,7 +306,7 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
             listaProyecto.add(fila, PI);
             listaProyecto.remove(fila + 1);
             limpiarTabla();
-            listar();
+         
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

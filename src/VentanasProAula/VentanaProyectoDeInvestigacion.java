@@ -7,7 +7,11 @@ package VentanasProAula;
 import co.edu.unicolombo.ingsistemas.pb.ejercicio1.proyectodeinvestigacion.modelo.ProyectoInvestigacion;
 import com.jtattoo.plaf.aero.AeroLookAndFeel;
 import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
+import config.Conexion;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -16,12 +20,14 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Equipo
- */
-public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
 
+public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
+    
+    Conexion con = new Conexion();
+    Connection conne = con.Conexion();   
+    Statement st;
+    ResultSet rs;
+    
     public VentanaProyectoDeInvestigacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -42,6 +48,22 @@ public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
         return Objetivo;
     }
 
+    void Agregar(){
+         String acro = txtNombreP.getText();
+         String liderP = txtLiderP.getText();
+         String obje = txtObjetivoP.getText();
+         try {
+                 String sql = "insert into proyectos(Acronimo,LiderProyecto,Objetivo) values "
+                         + "('" + acro + "','" + liderP + "','" + obje + "')";
+                 conne = con.Conexion();
+                 st = conne.createStatement();
+                 st.executeUpdate(sql);
+                 JOptionPane.showMessageDialog(null,"ProyectoAgregado"); 
+         } catch (Exception e) {
+             System.out.println(e);
+         }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -201,6 +223,7 @@ public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
             txtNombreP.setText("");
             JOptionPane.showMessageDialog(this, "Los campos estan vacios");
         } else {
+            Agregar();
             dispose();
         }
 

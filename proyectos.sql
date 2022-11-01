@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2022 a las 05:17:37
+-- Tiempo de generación: 01-11-2022 a las 05:57:02
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -42,7 +42,8 @@ CREATE TABLE `proyectos` (
 
 INSERT INTO `proyectos` (`Codigo`, `Acronimo`, `LiderProyecto`, `Objetivo`, `Fecha`) VALUES
 (1, 'Procesos Administrativo', 'Carlos Alvarez', 'Llevar el control y optimizar el manejo de la informacion', '2022-11-01 01:11:56'),
-(3, 'Sistema solar', 'Carlos Alvarez', 'Estudiar el universo', '2022-11-01 02:25:29');
+(3, 'Sistema solar', 'Carlos Alvarez', 'Estudiar el universo', '2022-11-01 02:25:29'),
+(4, 'Estudios', 'Carlos Alvarez', 'Investigar', '2022-11-01 04:49:58');
 
 --
 -- Índices para tablas volcadas
@@ -62,7 +63,7 @@ ALTER TABLE `proyectos`
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
