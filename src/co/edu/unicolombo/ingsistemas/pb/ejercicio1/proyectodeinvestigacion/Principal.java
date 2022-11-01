@@ -20,6 +20,7 @@ public class Principal {
         b = new VentanaInicio();
         b.setLocationRelativeTo(null);
        System.out.println("");
+       System.out.println("");
         
           try {
                 UIManager.setLookAndFeel( new AcrylLookAndFeel());
