@@ -1,5 +1,5 @@
 
-package co.edu.unicolombo.ingsistemas.pb.ejercicio1.proyectodeinvestigacion.modelo;
+package proyectodeinvestigacion.clases;
 
 import config.Conexion;
 import java.sql.Connection;
@@ -34,5 +34,6 @@ public class ProfesorDAO {
                  }
              }
     }
+  
   
 }

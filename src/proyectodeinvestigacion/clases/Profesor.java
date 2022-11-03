@@ -1,4 +1,4 @@
-package co.edu.unicolombo.ingsistemas.pb.ejercicio1.proyectodeinvestigacion.modelo;
+package proyectodeinvestigacion.clases;
 
 public class Profesor {
 

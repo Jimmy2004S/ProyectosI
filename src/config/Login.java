@@ -1,17 +1,17 @@
 
 package config;
 
-public class LoginBD {
+public class Login {
     
     private int id;
     private String nombre;
     private String identificacion;
 
-    public LoginBD(){
+    public Login(){
         
     }
     
-    public LoginBD(int id, String nombre, String identificacion) {
+    public Login(int id, String nombre, String identificacion) {
         this.id = id;
         this.nombre = nombre;
         this.identificacion = identificacion;

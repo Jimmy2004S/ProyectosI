@@ -1,13 +1,13 @@
 
 package VentanasProAula;
 
-import config.LoginBD;
-import config.LoginBD2;
+import config.Login;
+import config.LoginDAO;
 import javax.swing.JOptionPane;
 
 public class VentanaInicio extends javax.swing.JFrame {
-LoginBD l = new LoginBD();
-            LoginBD2 login = new LoginBD2();
+Login l = new Login();
+            LoginDAO login = new LoginDAO();
             
     public VentanaInicio() {
         initComponents();
@@ -69,8 +69,8 @@ LoginBD l = new LoginBD();
         PanelLogin.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 150, 50));
 
         logoUnic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoUnic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/unicolombo.png"))); // NOI18N
-        PanelLogin.add(logoUnic, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 970, -1));
+        logoUnic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/unicolombo.png"))); // NOI18N
+        PanelLogin.add(logoUnic, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 970, 80));
         PanelLogin.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 340, 30));
 
         textCorreo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -80,13 +80,10 @@ LoginBD l = new LoginBD();
         textClave.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         textClave.setText("CLAVE");
         PanelLogin.add(textClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 60, -1));
-
-        labelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image (2).png"))); // NOI18N
         PanelLogin.add(labelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ubicacion.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        PanelLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 1000, -1));
+        PanelLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 1000, 100));
         PanelLogin.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 340, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -97,7 +94,7 @@ LoginBD l = new LoginBD();
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+            .addComponent(PanelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

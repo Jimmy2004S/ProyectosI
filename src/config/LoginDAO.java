@@ -6,15 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
-public class LoginBD2 {
+public class LoginDAO {
     
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
     Conexion cn = new Conexion();
     
-    public LoginBD log(String nombre , String identificacion){
-        LoginBD l = new LoginBD();
+    public Login log(String nombre , String identificacion){
+        Login l = new Login();
+        
         String sql = "SELECT * FROM profesores WHERE Nombre=? AND identificacion =?";
         
         try {

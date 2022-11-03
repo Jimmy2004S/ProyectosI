@@ -1,12 +1,9 @@
 
-package co.edu.unicolombo.ingsistemas.pb.ejercicio1.proyectodeinvestigacion;
+package proyectodeinvestigacion.main;
 
 
 import VentanasProAula.VentanaInicio;
-import com.jtattoo.plaf.AbstractLookAndFeel;
-import com.jtattoo.plaf.acryl.AcrylLookAndFeel;
 import com.jtattoo.plaf.aero.AeroLookAndFeel;
-import com.jtattoo.plaf.luna.LunaLookAndFeel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
@@ -18,7 +15,6 @@ public class Principal {
     
    public static void main(String[] ar) {
         
-      
        try {
 
            UIManager.setLookAndFeel(new AeroLookAndFeel());

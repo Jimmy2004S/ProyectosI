@@ -1,7 +1,7 @@
 
 package VentanasProAula;
 
-import co.edu.unicolombo.ingsistemas.pb.ejercicio1.proyectodeinvestigacion.modelo.ProyectoInvestigacion;
+import proyectodeinvestigacion.clases.ProyectoInvestigacion;
 import config.Conexion;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -144,8 +144,7 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
         });
         jPanel2.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 13, 280, 40));
 
-        btnRegresar.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Volver.png"))); // NOI18N
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Volver.png"))); // NOI18N
         btnRegresar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 255, 204), new java.awt.Color(102, 255, 204), null));
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,7 +153,7 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
         });
         jPanel2.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1002, 23, 46, 30));
 
-        btnVentanaProf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Administrar.png"))); // NOI18N
+        btnVentanaProf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Administrar.png"))); // NOI18N
         btnVentanaProf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVentanaProfActionPerformed(evt);
@@ -162,9 +161,8 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
         });
         jPanel2.add(btnVentanaProf, new org.netbeans.lib.awtextra.AbsoluteConstraints(909, 23, -1, 30));
 
-        btnAgregar.setBackground(new java.awt.Color(255, 255, 255));
         btnAgregar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/añadir-24.png"))); // NOI18N
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/añadir-24.png"))); // NOI18N
         btnAgregar.setText("AGREGAR");
         btnAgregar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(51, 255, 153), new java.awt.Color(0, 255, 204), null));
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -174,9 +172,8 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
         });
         jPanel2.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 110, -1));
 
-        btnEliminarFila.setBackground(new java.awt.Color(255, 255, 255));
         btnEliminarFila.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnEliminarFila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Eliminar.png"))); // NOI18N
+        btnEliminarFila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Eliminar.png"))); // NOI18N
         btnEliminarFila.setText("ELIMINAR");
         btnEliminarFila.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(51, 255, 204), new java.awt.Color(51, 255, 204), null));
         btnEliminarFila.addActionListener(new java.awt.event.ActionListener() {
@@ -188,12 +185,12 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
 
         etiBuscar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         etiBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        etiBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Buscar.png"))); // NOI18N
+        etiBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Buscar.png"))); // NOI18N
         etiBuscar.setText("BUSCAR");
         jPanel2.add(etiBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 20, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Editar.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Editar.png"))); // NOI18N
         jButton1.setText("EDITAR");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(51, 255, 204), new java.awt.Color(0, 255, 102), null));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -205,7 +202,7 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 1060, 80));
 
-        etiFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Universidad new.png"))); // NOI18N
+        etiFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Universidad new.png"))); // NOI18N
         jPanel1.add(etiFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

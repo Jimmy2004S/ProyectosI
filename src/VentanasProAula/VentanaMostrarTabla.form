@@ -97,7 +97,7 @@
             <Component class="javax.swing.JButton" name="btnRegresar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Volver.png"/>
+                  <Image iconType="3" name="/proyectodeinvestigacion/imagenes/Volver.png"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -120,7 +120,7 @@
             <Component class="javax.swing.JButton" name="btnVentanaProf">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Administrar.png"/>
+                  <Image iconType="3" name="/proyectodeinvestigacion/imagenes/Administrar.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -138,7 +138,7 @@
                   <Font name="Times New Roman" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/a&#xf1;adir-24.png"/>
+                  <Image iconType="3" name="/proyectodeinvestigacion/imagenes/a&#xf1;adir-24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="AGREGAR"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -165,7 +165,7 @@
                   <Font name="Times New Roman" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Eliminar.png"/>
+                  <Image iconType="3" name="/proyectodeinvestigacion/imagenes/Eliminar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ELIMINAR"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -195,7 +195,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Buscar.png"/>
+                  <Image iconType="3" name="/proyectodeinvestigacion/imagenes/Buscar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="BUSCAR"/>
               </Properties>
@@ -211,7 +211,7 @@
                   <Font name="Times New Roman" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Editar.png"/>
+                  <Image iconType="3" name="/proyectodeinvestigacion/imagenes/Editar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="EDITAR"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -237,7 +237,7 @@
         <Component class="javax.swing.JLabel" name="etiFondo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Universidad new.png"/>
+              <Image iconType="3" name="/proyectodeinvestigacion/imagenes/Universidad new.png"/>
             </Property>
           </Properties>
           <Constraints>

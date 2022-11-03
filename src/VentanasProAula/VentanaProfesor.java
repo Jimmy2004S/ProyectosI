@@ -1,7 +1,7 @@
 package VentanasProAula;
 
-import co.edu.unicolombo.ingsistemas.pb.ejercicio1.proyectodeinvestigacion.modelo.Profesor;
-import co.edu.unicolombo.ingsistemas.pb.ejercicio1.proyectodeinvestigacion.modelo.ProfesorDAO;
+import proyectodeinvestigacion.clases.Profesor;
+import proyectodeinvestigacion.clases.ProfesorDAO;
 import config.Conexion;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
@@ -48,7 +48,7 @@ public class VentanaProfesor extends javax.swing.JDialog {
         grupoDoctorado = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         JpanelBotones = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnVaciar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         PanelInfor = new javax.swing.JPanel();
@@ -78,18 +78,18 @@ public class VentanaProfesor extends javax.swing.JDialog {
         JpanelBotones.setBackground(new java.awt.Color(0, 0, 0, 80));
         JpanelBotones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Escoba.png"))); // NOI18N
-        jButton1.setText("VACIAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVaciar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnVaciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Escoba.png"))); // NOI18N
+        btnVaciar.setText("VACIAR");
+        btnVaciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVaciarActionPerformed(evt);
             }
         });
-        JpanelBotones.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 130, -1));
+        JpanelBotones.add(btnVaciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 130, -1));
 
         btnEliminar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Eliminar.png"))); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Eliminar.png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +99,7 @@ public class VentanaProfesor extends javax.swing.JDialog {
         JpanelBotones.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 129, 33));
 
         btnAgregar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/añadir-24.png"))); // NOI18N
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/añadir-24.png"))); // NOI18N
         btnAgregar.setText("AGREGAR");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,12 +220,12 @@ public class VentanaProfesor extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Buscar.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Buscar.png"))); // NOI18N
         jLabel1.setText("BUSCAR");
         JpanelBotones.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, 20));
 
         Modificar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Editar.png"))); // NOI18N
+        Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Editar.png"))); // NOI18N
         Modificar.setText("MODIFICAR");
         Modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,8 +236,8 @@ public class VentanaProfesor extends javax.swing.JDialog {
 
         jPanel2.add(JpanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 570, 640));
 
-        etiFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Escribiendo.png"))); // NOI18N
-        jPanel2.add(etiFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 620, -1));
+        etiFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Escribiendo.png"))); // NOI18N
+        jPanel2.add(etiFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 690));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -260,7 +260,6 @@ public class VentanaProfesor extends javax.swing.JDialog {
       Table.addColumn("id");
       Table.addColumn("Cargo");
       tblTabla2.setModel(Table);
-      
          String sql = "select * from profesores";
         try {
             st = connet.createStatement();
@@ -402,10 +401,10 @@ public class VentanaProfesor extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVaciarActionPerformed
         txtId.setText(" ");
         txtNomProf.setText(" ");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVaciarActionPerformed
 
     TableRowSorter trs;
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
@@ -474,10 +473,10 @@ public class VentanaProfesor extends javax.swing.JDialog {
     private javax.swing.JRadioButton btnAutor;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JRadioButton btnInvestigadorP;
+    private javax.swing.JButton btnVaciar;
     private javax.swing.JLabel etiFondo;
     private javax.swing.JLabel etiNomProfesor;
     private javax.swing.ButtonGroup grupoDoctorado;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

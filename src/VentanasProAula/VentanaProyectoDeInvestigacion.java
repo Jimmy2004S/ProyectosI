@@ -10,12 +10,15 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import proyectodeinvestigacion.clases.ProyectoInvestigacion;
+import proyectodeinvestigacion.clases.ProyectoInvestigacionDAO;
 
 
 
 public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
     
-
+    ProyectoInvestigacion pr = new ProyectoInvestigacion();
+    ProyectoInvestigacionDAO proI = new ProyectoInvestigacionDAO();
     Conexion con = new Conexion();
     Connection conne = con.Conexion();   
     Statement st;
@@ -41,21 +44,14 @@ public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
         return Objetivo;
     }
 
-    void Agregar(){
-         String acro = txtNombreP.getText();
-         String liderP = txtLiderP.getText();
-         String obje = txtObjetivoP.getText();
-         try {
-                 String sql = "insert into proyectos(Acronimo,LiderProyecto,Objetivo) values "
-                         + "('" + acro + "','" + liderP + "','" + obje + "')";
-                 conne = con.Conexion();
-                 st = conne.createStatement();
-                 st.executeUpdate(sql);
-                 JOptionPane.showMessageDialog(null,"ProyectoAgregado"); 
-         } catch (Exception e) {
-             System.out.println(e);
-         }
+     void Agregar(){
+                pr.setAcronimo(txtNombreP.getText());
+                pr.setLiderProyecto(txtLiderP.getText());
+                pr.setObjetivo(txtObjetivoP.getText());
+                proI.RegistrarProyecto(pr);
+                JOptionPane.showMessageDialog(null, "Registrado ");
     }
+     
     
     void modificar(){
         
@@ -97,7 +93,6 @@ public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Escoba.png"))); // NOI18N
         jButton3.setText("VACIAR");
         jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +103,6 @@ public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, 110, 40));
 
         btnAgregarProyecto.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnAgregarProyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/añadir-24.png"))); // NOI18N
         btnAgregarProyecto.setText("AGREGAR");
         btnAgregarProyecto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnAgregarProyecto.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +198,7 @@ public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 370, 450));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Escribiendo.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Escribiendo.png"))); // NOI18N
         jLabel5.setText("jLabel5");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 680));
 
