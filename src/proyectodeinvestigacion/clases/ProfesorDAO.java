@@ -44,9 +44,7 @@ public class ProfesorDAO {
                  ps.execute();
               JOptionPane.showMessageDialog(null, "Registrado ");
             }
-           
                             return true;
-            
         } catch (SQLException e) {
             System.out.println("Registrar: " + e);
             return false;
