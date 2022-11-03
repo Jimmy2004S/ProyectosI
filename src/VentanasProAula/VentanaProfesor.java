@@ -285,7 +285,6 @@ public class VentanaProfesor extends javax.swing.JDialog {
         }
     }
 
-
      void Agregar(){
            String cs = null;
                  if (btnAutor.isSelected()) {
@@ -297,11 +296,9 @@ public class VentanaProfesor extends javax.swing.JDialog {
                 pr.setIdentificacion(txtId.getText());
                 pr.setCargo(cs);
                 profe.RegistrarCliente(pr);
-                JOptionPane.showMessageDialog(null, "Registrado ");
                 limpiarTabla();
     }
-     
-     
+      
      void modificar() {
         int fila = tblTabla2.getSelectedRow();
         id = Integer.parseInt(tblTabla2.getValueAt(fila, 0).toString());
@@ -325,7 +322,6 @@ public class VentanaProfesor extends javax.swing.JDialog {
             }  
         }  
      }
-    
      
      void eliminar () throws SQLException{
          int fila = tblTabla2.getSelectedRow();
