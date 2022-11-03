@@ -312,7 +312,6 @@ public class VentanaProfesor extends javax.swing.JDialog {
                 cs = "Autor";
             } else if (btnInvestigadorP.isSelected()) {
                 cs = "Investigador principal";
-            
             try {
                 String sql = "UPDATE profesores set codigo= '" + id + "',Nombre='" +
                         nom + "',identificacion='" + identi + "', cargo='" + cs + "' WHERE codigo =" + id;
