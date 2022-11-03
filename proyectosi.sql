@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2022 a las 22:00:54
+-- Tiempo de generación: 03-11-2022 a las 07:25:51
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -42,10 +42,12 @@ CREATE TABLE `profesores` (
 INSERT INTO `profesores` (`codigo`, `Nombre`, `identificacion`, `cargo`) VALUES
 (1, 'Carlos Alvarez', '104312945', 'Investigador principal'),
 (2, 'Pedro Rosales', '12343343', 'Investigador principal'),
-(3, 'Marco Silva', '312031122', 'Autor'),
+(3, 'ji', '123', 'Autor'),
 (4, 'Francisco Luna', '213442323', 'Autor'),
-(5, 'ji', '123', 'Investigador principal'),
-(6, 'pro', '123', 'Autor');
+(7, 'sdfs', 'dsfsdf', 'Autor'),
+(8, 'aqsdasdsa', '123', 'Autor'),
+(9, 'dasdas', '123', 'Autor'),
+(10, 'dasdas', '123', 'Investigador principal');
 
 -- --------------------------------------------------------
 
@@ -68,7 +70,13 @@ CREATE TABLE `proyectos` (
 INSERT INTO `proyectos` (`Codigo`, `Acronimo`, `LiderProyecto`, `Objetivo`, `Fecha`) VALUES
 (1, 'Procesos Administrativo', 'Carlos Alvarez', 'Llevar el control y optimizar el manejo de la informacion', '2022-11-01 01:11:56'),
 (3, 'Sistema solar', 'Carlos Alvarez', 'Estudiar el universo', '2022-11-01 02:25:29'),
-(4, 'Estudios', 'Carlos Alvarez', 'Investigar', '2022-11-01 04:49:58');
+(5, 'Partido', '123', 'dfdsfds', '2022-11-01 21:29:50'),
+(6, 'czxcz', 'zczxc', 'xzczcxz', '2022-11-01 21:42:30'),
+(8, 'dsfsd', 'fdssdfdsf', 'dsfds', '2022-11-03 05:08:56'),
+(9, 'asdasd', '123', 'dsdfdsfdsfdsfsd', '2022-11-03 06:11:44'),
+(10, 'asdasddfdsfdsfds', '123', 'ddfdsfdsdfdsfdsfdsfsd', '2022-11-03 06:11:53'),
+(11, 'asdasddfdsfdsfdsdfdsfds', '123', 'ddfdsfdsdfdsfdsfdsdsfdsfsd', '2022-11-03 06:11:59'),
+(12, 'asdasddfdsfdsfdsdfdsfdsfdssdfs', '123', 'ddfdsfdsdfdsfdsfdsdsfdsfsd', '2022-11-03 06:12:07');
 
 --
 -- Índices para tablas volcadas
@@ -94,13 +102,13 @@ ALTER TABLE `proyectos`
 -- AUTO_INCREMENT de la tabla `profesores`
 --
 ALTER TABLE `profesores`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
