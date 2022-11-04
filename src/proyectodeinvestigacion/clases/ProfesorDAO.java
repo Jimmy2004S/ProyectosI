@@ -1,6 +1,4 @@
-
 package proyectodeinvestigacion.clases;
-
 import config.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +8,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class ProfesorDAO {
-    
+
     Conexion cn = new Conexion();
     Connection conn;
     PreparedStatement ps;
@@ -18,7 +16,7 @@ public class ProfesorDAO {
     ResultSet rs;
     boolean bandera = false;
     
-    public boolean RegistrarCliente(Profesor pro) {
+    public boolean RegistrarProfesor(Profesor pro) {
         String sql = "INSERT INTO profesores (Nombre,identificacion,Cargo) VALUES (?,?,?)";
         try {
             conn = cn.Conexion();
@@ -26,7 +24,6 @@ public class ProfesorDAO {
             st = conn.createStatement();
             rs = st.executeQuery(sql2);
                     
-            
             String pl = pro.getNombres();
             String clave = pro.getIdentificacion();
             while (rs.next()) {

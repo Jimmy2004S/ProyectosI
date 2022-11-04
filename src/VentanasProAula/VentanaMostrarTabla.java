@@ -3,6 +3,8 @@ package VentanasProAula;
 
 import proyectodeinvestigacion.clases.ProyectoInvestigacion;
 import config.Conexion;
+import config.Login;
+import config.LoginDAO;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -29,6 +31,7 @@ import net.sf.jasperreports.view.JasperViewer;
 public class VentanaMostrarTabla extends javax.swing.JFrame {
 
     VentanaProyectoDeInvestigacion v = new VentanaProyectoDeInvestigacion(this, true);
+    VentanaInicio v2 = new VentanaInicio();
     private ArrayList<ProyectoInvestigacion> listaProyecto;
     DefaultTableModel Table = new DefaultTableModel();
     Conexion con = new Conexion();
@@ -36,17 +39,14 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
     Statement st;
     ResultSet rs;
     int codigo; 
+    Login l = new Login();
+LoginDAO login = new LoginDAO();
    
     public VentanaMostrarTabla() {
         initComponents();
         setSize(1100, 680);
         listaProyecto = new ArrayList<>();
         Listar();
-        String[] titulo = new String[]{"CODIGO", "NOMBRE DEL PROYECTO",
-            "INVESTIGADOR PRINCIPAL", "OBJETIVO", "FECHA"};
-        Table.setColumnIdentifiers(titulo);
-        tblTabla.setModel(Table);
-
     }
 
    public void Listar() {
@@ -58,17 +58,19 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
       Table.addColumn("Fecha");
       tblTabla.setModel(Table);
       
-         String sql = "select * from proyectos";
+       System.out.println("dato: " + l.getIdentificacion());
+      
+         String sql = "select * from proyectos WHERE id_profesor='"+l.getIdentificacion()+"'";
         try {
             st = conne.createStatement();
             rs = st.executeQuery(sql);
             Object [] proyectos =  new Object [5];
             while(rs.next()){
                 proyectos [0] = rs.getInt(1);
-                proyectos [1] = rs.getString(2);
-                proyectos [2] = rs.getString(3);
-                proyectos [3] = rs.getString(4);
-                proyectos [4] = rs.getTimestamp(5);
+                proyectos [1] = rs.getString("Acronimo");
+                proyectos [2] = rs.getString("LiderProyecto");
+                proyectos [3] = rs.getString("Objetivo");
+                proyectos [4] = rs.getTimestamp("Fecha");
                 Table.addRow(proyectos);
             }
             tblTabla.setModel(Table);
@@ -117,6 +119,7 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
         etiBuscar = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        txtReporte = new javax.swing.JTextField();
         etiFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -211,15 +214,16 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 108, 30));
 
-        jButton2.setText("jButton2");
+        jButton2.setText("pdf");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 50, 30));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 70, 50, 30));
+        jPanel2.add(txtReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(689, 70, 130, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 1060, 80));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 1060, 110));
 
         etiFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/Universidad new.png"))); // NOI18N
         jPanel1.add(etiFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 650));
@@ -319,9 +323,9 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
         
         JasperReport reporte = null;
         String path = "src\\reportes\\report1.jasper";
-        
+        String cad1 = txtReporte.getText();
         Map parametro = new HashMap();
-        parametro.put("Codigo", 123);
+        parametro.put("Codigo", cad1);
         
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             
@@ -375,5 +379,6 @@ public class VentanaMostrarTabla extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblTabla;
     private javax.swing.JTextField txtBuscar;
+    private javax.swing.JTextField txtReporte;
     // End of variables declaration//GEN-END:variables
 }

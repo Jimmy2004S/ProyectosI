@@ -3,26 +3,18 @@ package config;
 
 public class Login {
     
-    private int id;
+ 
     private String nombre;
-    private String identificacion;
+    private static String identificacion;
 
     public Login(){
         
     }
     
-    public Login(int id, String nombre, String identificacion) {
-        this.id = id;
+    public Login( String nombre, String identificacion) {
+   
         this.nombre = nombre;
         this.identificacion = identificacion;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombre() {

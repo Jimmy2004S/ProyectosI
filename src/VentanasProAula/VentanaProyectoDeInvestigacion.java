@@ -49,7 +49,6 @@ public class VentanaProyectoDeInvestigacion extends javax.swing.JDialog {
                 pr.setLiderProyecto(txtLiderP.getText());
                 pr.setObjetivo(txtObjetivoP.getText());
                 proI.RegistrarProyecto(pr);
-                JOptionPane.showMessageDialog(null, "Registrado ");
     }
      
     

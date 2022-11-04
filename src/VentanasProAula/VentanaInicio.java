@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public class VentanaInicio extends javax.swing.JFrame {
 Login l = new Login();
-            LoginDAO login = new LoginDAO();
+LoginDAO login = new LoginDAO();
             
     public VentanaInicio() {
         initComponents();
@@ -46,7 +46,8 @@ Login l = new Login();
         textClave = new javax.swing.JLabel();
         labelImagen = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JPasswordField();
+        rbMostrarCon = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -71,7 +72,29 @@ Login l = new Login();
         logoUnic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logoUnic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectodeinvestigacion/imagenes/unicolombo.png"))); // NOI18N
         PanelLogin.add(logoUnic, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 970, 80));
-        PanelLogin.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 340, 30));
+
+        txtCorreo.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        txtCorreo.setFocusable(false);
+        txtCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtCorreoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtCorreoMouseExited(evt);
+            }
+        });
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyTyped(evt);
+            }
+        });
+        PanelLogin.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 340, 40));
 
         textCorreo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         textCorreo.setText("CORREO");
@@ -84,7 +107,39 @@ Login l = new Login();
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PanelLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 1000, 100));
+
+        txtContraseña.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        txtContraseña.setFocusable(false);
+        txtContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtContraseñaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtContraseñaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtContraseñaMouseExited(evt);
+            }
+        });
         PanelLogin.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 340, 40));
+
+        rbMostrarCon.setBackground(new java.awt.Color(255, 255, 255));
+        rbMostrarCon.setText("Mostrar contraseña");
+        rbMostrarCon.setFocusable(false);
+        rbMostrarCon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rbMostrarConMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rbMostrarConMouseExited(evt);
+            }
+        });
+        rbMostrarCon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbMostrarConActionPerformed(evt);
+            }
+        });
+        PanelLogin.add(rbMostrarCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 210, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,48 +158,78 @@ Login l = new Login();
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
         validar();
-
     }//GEN-LAST:event_btnEntrarActionPerformed
-//
-//    public static void main(String args[]) {
 
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+    private void rbMostrarConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMostrarConActionPerformed
+     
+        if(rbMostrarCon.isSelected()){
+            String cad1 = txtContraseña.getText(); 
+        }
+      
+    }//GEN-LAST:event_rbMostrarConActionPerformed
+
+    private void txtCorreoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCorreoMouseEntered
+        txtCorreo.setFocusable(true);
+    }//GEN-LAST:event_txtCorreoMouseEntered
+
+    private void txtCorreoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCorreoMouseExited
+
+    }//GEN-LAST:event_txtCorreoMouseExited
+
+    private void txtContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaMouseClicked
+
+    private void txtContraseñaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMouseEntered
+        txtContraseña.setFocusable(true);
+    }//GEN-LAST:event_txtContraseñaMouseEntered
+
+    private void txtContraseñaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMouseExited
+         
+    }//GEN-LAST:event_txtContraseñaMouseExited
+
+    private void rbMostrarConMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbMostrarConMouseEntered
+        rbMostrarCon.setFocusable(true);
+    }//GEN-LAST:event_rbMostrarConMouseEntered
+
+    private void rbMostrarConMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbMostrarConMouseExited
+       
+    }//GEN-LAST:event_rbMostrarConMouseExited
+
+    private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
+    
+    }//GEN-LAST:event_txtCorreoKeyReleased
+
+    private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
+ 
+    }//GEN-LAST:event_txtCorreoKeyTyped
+
+    private void txtCorreoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyPressed
+ 
+    }//GEN-LAST:event_txtCorreoKeyPressed
+
+//    public static void main(String args[]) {
+//        try { for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {javax.swing.UIManager.setLookAndFeel(info.getClassName());
 //                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
+//               }}} catch (ClassNotFoundException ex) {
 //            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//
-//        java.awt.EventQueue.invokeLater(new Runnable() {
+//        } catch (InstantiationException ex) {java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
 //                VentanaInicio dialog = new VentanaInicio();
 //                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 //                    @Override
 //                    public void windowClosing(java.awt.event.WindowEvent e) {
 //                        System.exit(0);
-//                    }
-//                });
-//                
-//                
-//////                  try {
-//////                    UIManager.setLookAndFeel( new AeroLookAndFeel());
+//                    }});            
+//////                  try {UIManager.setLookAndFeel( new AeroLookAndFeel());
 //////                } catch (UnsupportedLookAndFeelException ex) {
 //////                    Logger.getLogger(VentanaInicio.class.getName()).log(Level.SEVERE, null, ex);
-//////                }
-//                dialog.setVisible(true);
-//            }
-//        });
-//    }
+//////                }dialog.setVisible(true);
+//            }});}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelLogin;
@@ -152,9 +237,10 @@ Login l = new Login();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelImagen;
     private javax.swing.JLabel logoUnic;
+    private javax.swing.JRadioButton rbMostrarCon;
     private javax.swing.JLabel textClave;
     private javax.swing.JLabel textCorreo;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtCorreo;
     // End of variables declaration//GEN-END:variables
 }

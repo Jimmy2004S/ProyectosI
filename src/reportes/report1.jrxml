@@ -1,108 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b8c24105-340a-4fce-b32e-f09ec0dc48f6">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c192834d-c0a5-43b5-9f54-8c275d888cd5">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="Codigo" class="java.lang.String">
+	<parameter name="identi" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-     profesores.`codigo` AS profesores_codigo,
-     profesores.`identificacion` AS profesores_identificacion,
+     profesores.`Nombre` AS profesores_Nombre,
      proyectos.`Codigo` AS proyectos_Codigo,
-     proyectos.`LiderProyecto` AS proyectos_LiderProyecto,
      proyectos.`Acronimo` AS proyectos_Acronimo,
-     profesores.`Nombre` AS profesores_Nombre
+     proyectos.`LiderProyecto` AS proyectos_LiderProyecto,
+     proyectos.`id_profesor` AS proyectos_id_profesor,
+     profesores.`identificacion` AS profesores_identificacion
 FROM
-     `proyectos` proyectos INNER JOIN `profesores` profesores ON proyectos.`LiderProyecto` = profesores.`identificacion`
-WHERE proyectos.LiderProyecto=$P!{Codigo}]]>
+     `proyectos` proyectos INNER JOIN `profesores` profesores ON proyectos.`id_profesor` = profesores.`identificacion`
+WHERE
+     proyectos.id_profesor=$P!{identi}]]>
 	</queryString>
-	<field name="profesores_codigo" class="java.lang.Integer"/>
-	<field name="profesores_identificacion" class="java.lang.String"/>
-	<field name="proyectos_Codigo" class="java.lang.Integer"/>
-	<field name="proyectos_LiderProyecto" class="java.lang.String"/>
-	<field name="proyectos_Acronimo" class="java.lang.String"/>
 	<field name="profesores_Nombre" class="java.lang.String"/>
+	<field name="proyectos_Codigo" class="java.lang.Integer"/>
+	<field name="proyectos_Acronimo" class="java.lang.String"/>
+	<field name="proyectos_LiderProyecto" class="java.lang.String"/>
+	<field name="proyectos_id_profesor" class="java.lang.String"/>
+	<field name="profesores_identificacion" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="147" splitType="Stretch">
+		<band height="79" splitType="Stretch">
 			<image>
-				<reportElement x="108" y="18" width="324" height="79" uuid="88b1181f-b8c6-4867-91e7-660e29495b1c"/>
+				<reportElement x="174" y="16" width="196" height="49" uuid="4f646f3b-dba1-43a6-a422-d57104452e45"/>
 				<imageExpression><![CDATA["D:\\INGENIERIA DE SISTEMA\\SEMESTRE 3\\PRO Aula Proyectos\\Proaula\\src\\proyectodeinvestigacion\\imagenes\\unicolombo.png"]]></imageExpression>
 			</image>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="445" y="41" width="100" height="20" uuid="e320177a-a3ef-4e79-878c-aa4de34391bf"/>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="443" y="29" width="100" height="20" uuid="ce53a2cd-cb72-490c-aa1e-55febd241919"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="173" y="113" width="192" height="20" uuid="0698c064-2952-4e59-978b-b73c162c2359"/>
-				<text><![CDATA[PROYECTO DE INVESTIGACION]]></text>
-			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="46" splitType="Stretch">
+		<band height="33" splitType="Stretch">
 			<staticText>
-				<reportElement x="8" y="0" width="100" height="20" uuid="58ebe109-d0c6-423c-9ead-ad955e740cdb"/>
-				<text><![CDATA[profesores_codigo]]></text>
+				<reportElement x="44" y="2" width="100" height="20" uuid="3aa49e3d-5dd3-471a-b204-a502d9e7654a"/>
+				<text><![CDATA[Codigo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="131" y="0" width="100" height="20" uuid="9650b2fc-1ab6-44cc-8da7-76bb13b25770"/>
-				<text><![CDATA[profesores_identificacion]]></text>
+				<reportElement x="230" y="0" width="100" height="20" uuid="acf11201-1d05-429f-bd4e-6085d0dc2a8f"/>
+				<text><![CDATA[Acronimo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="265" y="0" width="100" height="20" uuid="395f9d90-cd7b-4ca4-b0f7-b77b5b407081"/>
-				<text><![CDATA[proyectos_Acronimo]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="393" y="2" width="100" height="20" uuid="93c3f28a-830c-4bec-b9a9-5bf7f570eca7"/>
-				<text><![CDATA[proyectos_Codigo]]></text>
+				<reportElement x="408" y="0" width="100" height="20" uuid="b2669bd4-47f4-438c-a142-ef60b79f5fd0"/>
+				<text><![CDATA[LiderProyecto]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="44" splitType="Stretch">
+		<band height="39" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20" uuid="42357f91-4604-4dd3-baa9-3b57e4b0f2ea"/>
-				<textFieldExpression><![CDATA[$F{profesores_codigo}]]></textFieldExpression>
+				<reportElement x="44" y="13" width="100" height="20" uuid="697aa2a5-3fea-4947-9c26-8d5f4450aaf6"/>
+				<textFieldExpression><![CDATA[$F{proyectos_Codigo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="131" y="0" width="100" height="20" uuid="f5ecdd77-cd92-4b94-913c-5ad20eb00536"/>
-				<textFieldExpression><![CDATA[$F{profesores_identificacion}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="265" y="0" width="100" height="20" uuid="d03015fd-e598-44fe-90fb-7b32dacc5952"/>
+				<reportElement x="210" y="13" width="100" height="20" uuid="ccf0aed5-5131-4a53-a651-980934636c20"/>
 				<textFieldExpression><![CDATA[$F{proyectos_Acronimo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="393" y="0" width="100" height="20" uuid="499bf414-e347-42f6-b4be-236ca8b9dce4"/>
-				<textFieldExpression><![CDATA[$F{proyectos_Codigo}]]></textFieldExpression>
+				<reportElement x="408" y="13" width="100" height="20" uuid="af78c5ef-78f4-46ec-850d-ce3c363e2ad5"/>
+				<textFieldExpression><![CDATA[$F{proyectos_LiderProyecto}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="33" splitType="Stretch"/>
+		<band height="32" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="35" splitType="Stretch">
+		<band height="54" splitType="Stretch">
 			<textField>
-				<reportElement x="220" y="0" width="80" height="20" uuid="28175d75-7b86-4eb3-aefe-2d2d7d6da3bb"/>
+				<reportElement x="230" y="19" width="80" height="20" uuid="03c6303b-e780-4b3c-adf4-0f0753e80c2d"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="300" y="0" width="40" height="20" uuid="9a440ac0-49e1-4eb6-996c-626b1e3fcc34"/>
+				<reportElement x="330" y="19" width="40" height="20" uuid="96b35a02-e6b1-4de9-9874-11f7dce04380"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="16" splitType="Stretch"/>
+		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>

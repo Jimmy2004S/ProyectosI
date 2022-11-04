@@ -295,7 +295,7 @@ public class VentanaProfesor extends javax.swing.JDialog {
                 pr.setNombres(txtNomProf.getText());
                 pr.setIdentificacion(txtId.getText());
                 pr.setCargo(cs);
-                profe.RegistrarCliente(pr);
+                profe.RegistrarProfesor(pr);
                 limpiarTabla();
     }
       
@@ -323,7 +323,7 @@ public class VentanaProfesor extends javax.swing.JDialog {
         }  
      }
      
-     void eliminar () throws SQLException{
+    void eliminar () throws SQLException{
          int fila = tblTabla2.getSelectedRow();
           id = Integer.parseInt(tblTabla2.getValueAt(fila, 0).toString());
          
@@ -339,6 +339,9 @@ public class VentanaProfesor extends javax.swing.JDialog {
          }
                 
      }
+    
+    
+    
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
             if ((btnAutor.isSelected()
